@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulário de Contato</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+     
+    <h1>Formulário de Contato</h1>
+    <form
+      action="https://formsubmit.co/bi.syllab@gmail.com"
+      method="POST"
+      class="form"
+    >
+      <label for="name">Nome</label>
+      <input type="text" name="name" id="name" required />
+      <label for="email">E-mail</label>
+      <input type="email" name="email" id="email" required />
+      <label for="message">Tipo de Site:</label>
+
+        <div class="dropdown">
+          <div class="select">
+            <span class="selected">E-Commerce</span>
+            <div class="caret"></div>
+          </div>
+          <ul class="menu">
+            <li class="active">E-Commerce</li>
+            <li>Catálogo</li>
+            <li>Portifólio</li>
+            <li>Apresentação</li>
+            <li>Blog</li>
+          </ul>
+        </div>
+
+        <label for="message">Quantidade de Backups:</label>
+
+        <div class="dropdown">
+          <div class="select">
+            <span class="selected">1 vez por mês</span>
+            <div class="caret"></div>
+          </div>
+          <ul class="menu">
+            <li class="active">1 vez por mês</li>
+            <li>2 vezes por mês</li>
+            <li>Todo dia</li>
+          </ul>
+        </div>
+
+        <label for="message">Tipo de Hospedagem:</label>
+
+        <div class="dropdown">
+          <div class="select">
+            <span class="selected">Compartilhada</span>
+            <div class="caret"></div>
+          </div>
+          <ul class="menu">
+            <li class="active">Compartilhada</li>
+            <li>Com Servidor Dedicado</li>
+            <li>Hospedagem VPS</li>
+            <li>Hospedagem em Nuvem</li>
+          </ul>
+        </div>
+
+        <label for="message">Banco de Dados:</label>
+
+        <div class="dropdown">
+          <div class="select">
+            <span class="selected">Sim</span>
+            <div class="caret"></div>
+          </div>
+          <ul class="menu">
+            <li class="active">Sim</li>
+            <li>Não</li>
+          </ul>
+        </div>
+
+        <script>        
+        const dropdowns = document.querySelectorAll('.dropdown');
+
+          dropdowns.forEach(dropdown => {
+              const select = dropdown.querySelector('.select');
+              const caret = dropdown.querySelector('.caret');
+              const menu = dropdown.querySelector('.menu');
+              const options = dropdown.querySelectorAll('.menu li');
+              const selected = dropdown.querySelector('.selected');
+          
+              select.addEventListener('click', () => {
+                  select.classList.toggle('select-clicked');
+                  caret.classList.toggle('caret-rotate');
+                  menu.classList.toggle('menu-open');
+              });
+          
+              options.forEach(option => {
+                  option.addEventListener('click', () => {
+                      selected.innerText = option.innerText;
+                      select.classList.remove('select-clicked');
+                      caret.classList.remove('caret-rotate');
+                      menu.classList.remove('menu-open');
+                      options.forEach(option => {
+                          option.classList.remove('active');
+                      });
+                      option.classList.add('active');
+                  });
+              });
+          });
+          </script>
+
+      <label for="message">Descrição</label>
+      <textarea name="message" id="message" placeholder="Descreva aqui a sua empresa e como vc quer que seja o seu site." required></textarea>
+      <input
+        type="hidden"
+        name="_next"
+        value="bisyllab.tk/obrigado.html"
+      />
+      <button type="submit">Enviar</button> 
+      <img src="Img/Logoazul.png" alt="" width="400px">
+    </form>
+  </body>
+</html>
